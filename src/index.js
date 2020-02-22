@@ -2,19 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+/**
+ * コンポーネントは
+ * props と呼ばれるパラメータを受け取り
+ * render メソッドを通じて表示するビューの階層構造を返す
+ * 具体的には render は描画すべきものの軽量な記述形式である React 要素を返す
+ * <div /> -> React.createElement('div')
+ */
+
+ /**
+  * 正方形のマス目
+  */
 class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {this.props.value}
       </button>
     );
   }
 }
 
+/**
+ * 盤面
+ */
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
@@ -43,6 +57,9 @@ class Board extends React.Component {
   }
 }
 
+/**
+ * ゲーム
+ */
 class Game extends React.Component {
   render() {
     return (
